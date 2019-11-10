@@ -22,6 +22,9 @@
         <!-- Select2 -->
         <?php echo link_tag('./plugins/select2/css/select2.min.css'); ?>
         <?php echo link_tag('./plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css'); ?>
+        
+        <!-- iCheck for checkboxes and radio inputs -->
+        <?php echo link_tag('./plugins/icheck-bootstrap/icheck-bootstrap.min.css'); ?>
 
         <!-- REQUIRED SCRIPTS -->
         <!-- jQuery -->

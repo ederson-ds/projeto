@@ -96,6 +96,7 @@ class CI_Controller {
         $this->load->helper(array('file', 'html'));
 
         $files = get_dir_file_info(APPPATH . 'controllers', FALSE);
+        sort($files);
         $dados['files'] = $files;
 
         $this->load->view('home/header', $dados);
@@ -114,6 +115,7 @@ class CI_Controller {
         $this->load->helper(array('file', 'html'));
 
         $files = get_dir_file_info(APPPATH . 'controllers', FALSE);
+        sort($files);
         $dados['files'] = $files;
 
         $this->load->view('home/header', $dados);

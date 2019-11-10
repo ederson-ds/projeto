@@ -5,8 +5,8 @@
                                 <?php if($this->uri->segment(2) && $this->uri->segment(2) != 'index') { ?>
                                     <!-- ./card-body -->
                                     <div class="card-footer">
-                                        <a href="<?php echo base_url() . $controllerName ?>" class="btn btn-default">Voltar</a>
-                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                        <a href="<?php echo base_url() . $controllerName ?>" class="btn btn-outline-secondary btn-lg">Voltar</a>
+                                        <button type="submit" class="btn btn-outline-success btn-lg" style="width: 170px;">Enviar</button>
                                     </div>
                                 <?php } ?>
                                 </form>
@@ -29,10 +29,8 @@
 
             <!-- Main Footer -->
             <footer class="main-footer">
-                <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-                All rights reserved.
                 <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 3.0.0-rc.5
+                    <b>Versão</b> 1.0
                 </div>
             </footer>
         </div>
