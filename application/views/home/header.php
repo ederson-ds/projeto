@@ -109,7 +109,7 @@
                                         <li class="nav-item">
                                             <a href="<?php foreach ($files as $i => $file) { ?>
                                                 <?php if ($folha->tela == $i) { ?>
-                                                    <?php echo removeAliasPHP($file['name']) ?>
+                                                    <?php echo base_url() . removeAliasPHP($file['name']) ?>
                                                 <?php } ?>
                                             <?php } ?>" class="nav-link <?php echo Arvore::getFolhaActive($controllerName, $folha, $this->telasModel, 'active') ?>">
                                                 <i class="far fa-circle nav-icon"></i>

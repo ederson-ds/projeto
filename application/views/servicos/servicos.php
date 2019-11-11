@@ -11,8 +11,8 @@
             <tr>
                 <th style="width: 10%">Serviço</th>
                 <th style="width: 10%">Especialidade</th>
-                <th style="width: 20%">Valor</th>
-                <th style="width: 20%">Valor Custo</th>
+                <th style="width: 20%;text-align: right;">Valor</th>
+                <th style="width: 20%;text-align: right;">Valor Custo</th>
                 <th style="width: 20%">Unidade</th>
                 <th style="width: 20%">Ações</th>
             </tr>
@@ -30,8 +30,8 @@
                             }
                         ?>
                     </td>
-                    <td><?php echo Number::floatToNumber($servico->valor) ?></td>
-                    <td><?php echo Number::floatToNumber($servico->valorcusto) ?></td>
+                    <td style="text-align: right;"><?php echo Number::floatToNumber($servico->valor) ?></td>
+                    <td style="text-align: right;"><?php echo Number::floatToNumber($servico->valorcusto) ?></td>
                     <td>
                         <?php 
                             foreach($unidades as $unidade) {

@@ -1,9 +1,3 @@
-<style>
-    table td {
-        padding: 5px !important;
-    }
-</style>
-
 <!-- /.card-header -->
 <div class="card-body table-responsive p-0">
     <table class="table table-hover">
@@ -13,8 +7,8 @@
                 <th style="width: 20%">Nome</th>
                 <th style="width: 20%">EAN</th>
                 <th style="width: 10%">Aquisição</th>
-                <th style="width: 10%">Custo Médio</th>
-                <th style="width: 10%">Lucro</th>
+                <th style="width: 10%;text-align: right;">Custo Médio</th>
+                <th style="width: 10%;text-align: right;">Lucro</th>
                 <th style="width: 20%">Ações</th>
             </tr>
         </thead>
@@ -25,8 +19,8 @@
                     <td><?php echo $produto->nome ?></td>
                     <td><?php echo $produto->ean ?></td>
                     <td><?php echo ProdutosModel::$tipoAquisicao[$produto->aquisicao]; ?></td>
-                    <td><?php echo Number::floatToNumber($produto->customedio); ?></td>
-                    <td><?php echo Number::floatToNumber($produto->lucro); ?></td>
+                    <td style="text-align: right;"><?php echo Number::floatToNumber($produto->customedio); ?></td>
+                    <td style="text-align: right;"><?php echo Number::floatToNumber($produto->lucro); ?></td>
                     <td>
                         <a href="<?php echo base_url() . $controllerName ?>/create/<?php echo $produto->id ?>" class="btn bg-secondary" style="width: 42px;"><i class="fas fa-edit"></i></a>
                         <button type="button" class="btn btn-default btn-excluir" id="<?php echo $produto->id ?>" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash-alt"></i></button>
