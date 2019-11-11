@@ -22,8 +22,8 @@
                     <td style="text-align: right;"><?php echo Number::floatToNumber($produto->customedio); ?></td>
                     <td style="text-align: right;"><?php echo Number::floatToNumber($produto->lucro); ?></td>
                     <td>
-                        <a href="<?php echo base_url() . $controllerName ?>/create/<?php echo $produto->id ?>" class="btn bg-secondary" style="width: 42px;"><i class="fas fa-edit"></i></a>
-                        <button type="button" class="btn btn-default btn-excluir" id="<?php echo $produto->id ?>" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash-alt"></i></button>
+                        <?php echo editButton($controllerName, $produto->id); ?>
+                        <?php echo deleteButton($produto->id); ?>
                     </td>
                 </tr>
             <?php } ?>

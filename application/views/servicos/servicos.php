@@ -42,8 +42,8 @@
                         ?>
                     </td>
                     <td>
-                        <a href="<?php echo base_url() . $controllerName ?>/create/<?php echo $servico->id ?>" class="btn bg-secondary" style="width: 42px;"><i class="fas fa-edit"></i></a>
-                        <button type="button" class="btn btn-default btn-excluir" id="<?php echo $servico->id ?>" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash-alt"></i></button>
+                        <?php echo editButton($controllerName, $unidade->id); ?>
+                        <?php echo deleteButton($unidade->id); ?>
                     </td>
                 </tr>
             <?php } ?>

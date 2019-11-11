@@ -22,8 +22,8 @@
                     <td><?php echo $especialidade->nome ?></td>
                     <td><?php echo Date::isoToDateBR($especialidade->datacadastro) ?></td>
                     <td>
-                        <a href="<?php echo base_url() . $controllerName ?>/create/<?php echo $especialidade->id ?>" class="btn bg-secondary" style="width: 42px;"><i class="fas fa-edit"></i></a>
-                        <button type="button" class="btn btn-default btn-excluir" id="<?php echo $especialidade->id ?>" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash-alt"></i></button>
+                        <?php echo editButton($controllerName, $especialidade->id); ?>
+                        <?php echo deleteButton($especialidade->id); ?>
                     </td>
                 </tr>
             <?php } ?>

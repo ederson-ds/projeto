@@ -11,12 +11,12 @@
 
                         <div class="card-tools" style="margin-top: 5px;">
 
-                            <div class="input-group input-group-sm" style="width: 150px; height: 38px;">
+                            <div class="input-group input-group-sm" style="width: 230px; height: 38px;">
                                 <input type="text" id="input-table_search" class="form-control float-right" placeholder="Pesquisar" style="height: 38px;">
 
                                 <div class="input-group-append">
                                     <a href="<?php echo base_url() . $controllerName ?>/index" id="search_button" class="btn btn-default"><i class="fas fa-search" style="margin-top: 7px;"></i></a>
-                                    <a href="<?php echo base_url() . $controllerName ?>/create" class="btn btn-info"><i class="fas fa-plus" style="margin-top: 7px;"></i></a>
+                                    <a href="<?php echo base_url() . $controllerName ?>/create" class="btn btn-primary" style="width: 50px;"><i class="fas fa-plus" style="margin-top: 7px;"></i></a>
                                 </div>
                             </div>
                         </div>
