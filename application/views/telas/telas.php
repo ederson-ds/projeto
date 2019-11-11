@@ -1,23 +1,19 @@
-<style>
-    table td {
-        padding: 5px !important;
-    }
-</style>
-
 <!-- /.card-header -->
 <div class="card-body table-responsive p-0">
     <table class="table table-hover">
         <thead>
             <tr>
+                <th style="width: 10%">Código</th>
                 <th style="width: 20%">Nome da Tela</th>
                 <th style="width: 30%">Controller</th>
-                <th style="width: 30%">Árvore</th>
+                <th style="width: 20%">Árvore</th>
                 <th style="width: 20%">Ações</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($telas as $tela) { ?>
                 <tr>
+                    <td><?php echo $tela->id ?></td>
                     <td><?php echo $tela->nome ?></td>
                     <td>
                         <?php foreach ($files as $i => $file) {

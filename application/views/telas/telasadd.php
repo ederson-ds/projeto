@@ -1,10 +1,3 @@
-<?php
-
-//print_r($tela);
-//die;
-
-?>
-
 <input type="hidden" name="id" value="<?php echo $tela->id ?>"/>
 <div class="row">
     <div class="col-sm-4">
@@ -17,7 +10,7 @@
         <!-- checkbox -->
         <div class="form-group clearfix" style="padding-top: 38px;">
             <div class="icheck-primary d-inline">
-                <input type="checkbox" name="arvorecheckbox" id="checkbox" <?php echo ($tela->arvore) ? 'checked' : '' ?>>
+                <input type="checkbox" name="arvorecheckbox" id="checkbox" <?php echo (!$tela->arvore) ? 'checked' : '' ?>>
                 <label for="checkbox">Árvore</label>
             </div>
         </div>

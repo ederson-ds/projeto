@@ -41,6 +41,15 @@ class TelasModel extends CI_Model {
         return $query->result();
     }
 
+    public function get_folhas($arvore_id) {
+        $this->db->select('*');
+        $this->db->from('telas');
+        $this->db->where('arvore', $arvore_id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
     public function insert_entry($id) {
         $this->nome = $this->input->post('nome');
         if($this->input->post('arvorecheckbox') != 'on') {

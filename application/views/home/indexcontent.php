@@ -21,6 +21,11 @@
                             </div>
                         </div>
                     </div>
+                    <style>
+                        table td, th {
+                            padding: 5px !important;
+                        }
+                    </style>
                     <script>
                         $(document).ready(function () {
                             // Atualizar pesquisar

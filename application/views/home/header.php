@@ -1,3 +1,16 @@
+
+<?php 
+
+
+//echo Arvore::getArvoreActive($controllerName, $this->telasModel); 
+
+
+//die;
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -79,30 +92,35 @@
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
                                  with font-awesome or any other icon font library -->
-                            <li class="nav-item has-treeview menu-open">
-                                <a href="#" class="nav-link active">
-                                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                                    <p>
-                                        Painel Principal
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <?php foreach ($files as $file) { ?>
-                                        <?php if ($file['name'] != 'index.html' && $file['name'] != 'Home.php' && $file['name'] != 'Welcome.php') { ?>
-                                            <li class="nav-item">
-                                                
-                                                <?php if($controllerName == removeAliasPHP($file['name'])) { ?>
-                                                    <?php echo anchor(removeAliasPHP($file['name']), '<i class="far fa-circle nav-icon"></i><p>' . str_replace(".php", "", $file['name']) . '</p>', 'class="nav-link active"'); ?>
-                                                <?php } else { ?>
-                                                    <?php echo anchor(removeAliasPHP($file['name']), '<i class="far fa-circle nav-icon"></i><p>' . str_replace(".php", "", $file['name']) . '</p>', 'class="nav-link"'); ?>
+
+                            <?php 
+                            
+                            foreach ($this->telasModel->get_arvores() as $arvore) {?>
+                                <li class="nav-item has-treeview <?php echo Arvore::getArvoreActive($controllerName, $arvore, $this->telasModel, 'menu-open') ?>">
+                                    <a href="#" class="nav-link <?php echo Arvore::getArvoreActive($controllerName, $arvore, $this->telasModel, 'active') ?>">
+                                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                                        <p>
+                                            <?php echo $arvore->nome ?>
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                    <?php foreach ($this->telasModel->get_folhas($arvore->id) as $folha) { ?>
+                                        <li class="nav-item">
+                                            <a href="<?php foreach ($files as $i => $file) { ?>
+                                                <?php if ($folha->tela == $i) { ?>
+                                                    <?php echo removeAliasPHP($file['name']) ?>
                                                 <?php } ?>
-                                            </li>
-                                        <?php } ?>
+                                            <?php } ?>" class="nav-link <?php echo Arvore::getFolhaActive($controllerName, $folha, $this->telasModel, 'active') ?>">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p><?php echo $folha->nome ?></p>
+                                            </a>
+                                        </li>
                                     <?php } ?>
+                                </li>
                                 </ul>
-                            </li>
-                        </ul>
+                                <?php } ?>
+                                
                     </nav>
                     <!-- /.sidebar-menu -->
                 </div>

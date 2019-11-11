@@ -23,4 +23,10 @@ class Telas extends CI_Controller {
         parent::createview($dados);
     }
 
+    public function delete($id = null) {
+        $this->load->model('telasModel');
+        $this->telasModel->delete($id);
+        redirect('telas', 'refresh');
+    }
+
 }
