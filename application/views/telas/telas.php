@@ -24,8 +24,8 @@
                     </td>
                     <td><?php echo $tela->arvore ?></td>
                     <td>
-                        <?php echo editButton($controllerName, $unidade->id); ?>
-                        <?php echo deleteButton($unidade->id); ?>
+                        <?php echo editButton($controllerName, $tela->id); ?>
+                        <?php echo deleteButton($tela->id); ?>
                     </td>
                 </tr>
             <?php } ?>

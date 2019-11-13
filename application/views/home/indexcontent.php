@@ -1,6 +1,8 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
+
+        <?php if (!isset($header)) { ?>
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -21,6 +23,7 @@
                             </div>
                         </div>
                     </div>
+        <?php } ?>
                     <style>
                         table td, th {
                             padding: 5px !important;
