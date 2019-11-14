@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -83,7 +82,7 @@
 
                             <?php 
                             
-                            foreach ($this->telasModel->get_arvores() as $arvore) {?>
+                            foreach ($this->telasModel->get_arvores() as $arvore) { ?>
                                 <li class="nav-item has-treeview <?php echo Arvore::getArvoreActive($controllerName, $arvore, $this->telasModel, 'menu-open') ?>">
                                     <a href="#" class="nav-link <?php echo Arvore::getArvoreActive($controllerName, $arvore, $this->telasModel, 'active') ?>">
                                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -96,8 +95,8 @@
                                     <?php foreach ($this->telasModel->get_folhas($arvore->id) as $folha) { ?>
                                         <li class="nav-item">
                                             <a href="<?php foreach ($files as $i => $file) { ?>
-                                                <?php if ($folha->tela == $i) { ?>
-                                                    <?php echo base_url() . removeAliasPHP($file['name']) ?>
+                                                <?php if ($folha->controller == $i) { ?>
+                                                    <?php echo base_url() . $folha->controller ?>
                                                 <?php } ?>
                                             <?php } ?>" class="nav-link <?php echo Arvore::getFolhaActive($controllerName, $folha, $this->telasModel, 'active') ?>">
                                                 <i class="far fa-circle nav-icon"></i>
@@ -122,7 +121,14 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-12">
-                                <h1 class="m-0 text-dark"><?php echo ucfirst($controllerName) ?></h1>
+                                <h1 class="m-0 text-dark">
+                                    <?php 
+                                        $array = $this->telasModel->get_controllerName($controllerName);
+                                        if ($array) {
+                                            echo $this->telasModel->get_controllerName($controllerName)[0]->nome;
+                                        }
+                                    ?>
+                                </h1>
                             </div><!-- /.col -->
                         </div><!-- /.row -->
                     </div><!-- /.container-fluid -->

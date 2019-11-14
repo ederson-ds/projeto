@@ -3,7 +3,7 @@
 class TelasModel extends CI_Model {
 
     public $nome;
-    public $tela;
+    public $controller;
     public $arvore;
 
     public function __construct() {
@@ -35,7 +35,7 @@ class TelasModel extends CI_Model {
     public function get_arvores() {
         $this->db->select('*');
         $this->db->from('telas');
-        $this->db->where('tela', null);
+        $this->db->where('controller', null);
         $query = $this->db->get();
 
         return $query->result();
@@ -50,10 +50,19 @@ class TelasModel extends CI_Model {
         return $query->result();
     }
 
+    public function get_controllerName($controller) {
+        $this->db->select('nome');
+        $this->db->from('telas');
+        $this->db->where('controller', $controller);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
     public function insert_entry($id) {
         $this->nome = $this->input->post('nome');
         if($this->input->post('arvorecheckbox') != 'on') {
-            $this->tela = $this->input->post('tela');
+            $this->controller = $this->input->post('controller');
             $this->arvore = $this->input->post('arvore');
         }
         if ($id) {

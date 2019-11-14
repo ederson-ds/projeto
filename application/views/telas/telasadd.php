@@ -32,11 +32,11 @@
     <div class="col-sm-4" id='files'>
         <div class="form-group">
             <label>Controller</label>
-            <select class="form-control select2" name="tela" style="width: 100%">
+            <select class="form-control select2" name="controller" style="width: 100%">
                 <?php foreach ($files as $i => $file) { ?>
-                    <option <?php if ($tela->tela == $i) { ?>
+                    <option <?php if ($tela->controller == $i) { ?>
                             selected="selected"
-                        <?php } ?> value="<?php echo $i ?>"><?php echo ucfirst(removeAliasPHP($file['name'])) ?></option>
+                        <?php } ?> value="<?php echo removeAliasPHP($file['name']) ?>"><?php echo ucfirst(removeAliasPHP($file['name'])) ?></option>
                     <?php } ?>
             </select>
         </div>

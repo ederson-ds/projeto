@@ -30,7 +30,7 @@
 <body class="hold-transition login-page">
 <div class="login-box" style="margin-bottom: 150px;">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Sistema</b>Web</a>
+    <a href="../../index2.html"><b>Align</b>Sim</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

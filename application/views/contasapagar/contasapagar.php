@@ -1,27 +1,31 @@
+<style>
+    table td {
+        padding: 5px !important;
+    }
+</style>
+
 <!-- /.card-header -->
 <div class="card-body table-responsive p-0">
     <table class="table table-hover">
         <thead>
             <tr>
-                <th style="width: 10%">Código</th>
-                <th style="width: 20%">Nome da Tela</th>
-                <th style="width: 20%">Controller</th>
-                <th style="width: 20%">Árvore</th>
-                <th style="width: 10%">Data Cadastro</th>
+                <th style="width: 20%">Data</th>
+                <th style="width: 20%;text-align: right;padding-right: 5% !important;">Valor</th>
+                <th style="width: 30%">Descrição</th>
+                <th style="width: 10%">Status</th>
                 <th style="width: 20%">Ações</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($telas as $tela) { ?>
+            <?php foreach ($contasAPagar as $conta) { ?>
                 <tr>
-                    <td><?php echo $tela->id ?></td>
-                    <td><?php echo $tela->nome ?></td>
-                    <td><?php echo $tela->controller ?></td>
-                    <td><?php echo $tela->arvore ?></td>
-                    <td><?php echo $tela->datacadastro ?></td>
+                    <td><?php echo Date::isoToDateBR($conta->data) ?></td>
+                    <td style="text-align: right;padding-right: 5% !important;"><?php echo Number::floatToNumber($conta->valor) ?></td>
+                    <td><?php echo $conta->descricao ?></td>
+                    <td><?php echo ContasAPagarModel::$tipostatus[$conta->status] ?></td>
                     <td>
-                        <?php echo editButton($controllerName, $tela->id); ?>
-                        <?php echo deleteButton($tela->id); ?>
+                        <?php echo editButton($controllerName, $conta->id); ?>
+                        <?php echo deleteButton($conta->id); ?>
                     </td>
                 </tr>
             <?php } ?>

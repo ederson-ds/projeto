@@ -6,7 +6,7 @@ class Arvore {
 
     public static function getArvoreActive($controllerName, $arvore, $telasModal, $text) {
         foreach ($telasModal->get_folhas($arvore->id) as $folha) {
-            if ($controllerName == lcfirst(str_replace("ç", "c", $folha->nome))) {
+            if ($controllerName == $folha->controller) {
                 return $text;
             }
         }
@@ -15,7 +15,7 @@ class Arvore {
     }
 
     public static function getFolhaActive($controllerName, $folha, $telasModal, $text) {
-        if ($controllerName == lcfirst(str_replace("ç", "c", $folha->nome))) {
+        if ($controllerName == $folha->controller) {
             return $text;
         }
         return '';
