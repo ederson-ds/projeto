@@ -122,11 +122,8 @@
                         <div class="row mb-2">
                             <div class="col-sm-12">
                                 <h1 class="m-0 text-dark">
-                                    <?php 
-                                        $array = $this->telasModel->get_controllerName($controllerName);
-                                        if ($array) {
-                                            echo $this->telasModel->get_controllerName($controllerName)[0]->nome;
-                                        }
+                                    <?php
+                                        echo Texto::getControllerName($controllerName, $this->telasModel);
                                     ?>
                                 </h1>
                             </div><!-- /.col -->

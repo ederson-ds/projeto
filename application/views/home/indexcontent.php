@@ -1,3 +1,17 @@
+<style>
+    thead tr {
+        border-color: #8e8e8e !important;
+        border-top: 1px solid;
+    }
+    table td {
+        padding: 5px !important;
+    }
+    .table td, .table th {
+        border-color: #8e8e8e !important;
+        padding: 5px !important;
+    }
+
+</style>
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -7,9 +21,6 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-
-                        <!-- Reload button -->
-                        <a href="<?php echo base_url() . $controllerName ?>" class="btn btn-default"><i class="fas fa-sync-alt"></i></a>
 
                         <div class="card-tools" style="margin-top: 5px;">
 
@@ -24,11 +35,6 @@
                         </div>
                     </div>
         <?php } ?>
-                    <style>
-                        table td, th {
-                            padding: 5px !important;
-                        }
-                    </style>
                     <script>
                         $(document).ready(function () {
                             // Atualizar pesquisar

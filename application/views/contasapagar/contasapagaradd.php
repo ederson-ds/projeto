@@ -17,7 +17,7 @@
     <div class="col-sm-4">
         <div class="form-group">
             <label>Valor</label>
-            <input type="text" class="form-control inputCurrency" name="valor" value="<?php echo $contasAPagar->valor ?>" required/>
+            <input type="text" class="form-control inputCurrency" name="valor" value="<?php echo Number::floatToNumber($contasAPagar->valor) ?>" required/>
         </div>
     </div>
     <div class="col-sm-4">

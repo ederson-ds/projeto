@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ContasAPagar extends CI_Controller {
+class Contasapagar extends CI_Controller {
 
     public function index($pesquisar = null) {
         $this->load->model('contasAPagarModel');

@@ -1,3 +1,18 @@
+<style>
+.form-control, .select2-selection {
+    border-radius: 0px !important;
+    border-color: #8e8e8e !important;
+}
+label {
+    margin: 0;
+}
+
+.table td, .table th {
+    border-color: #8e8e8e !important;
+}
+
+</style>
+
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -5,9 +20,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title"><?php echo ucfirst($controllerName) ?></h5>
-                    </div>
                     <!-- /.card-header -->
                     <!-- card-body -->
                     <div class="card-body">
