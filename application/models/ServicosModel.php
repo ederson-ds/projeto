@@ -36,7 +36,7 @@ class ServicosModel extends CI_Model {
 
     public function insert_entry($id) {
         $this->unidade = $this->input->post('unidade');
-        $this->nome = strtoupper($this->input->post('nome'));
+        $this->nome = Texto::toUpperCase($this->input->post('nome'));
         $this->especialidade = $this->input->post('especialidade');
         $this->valor = Number::numberToFloat($this->input->post('valor'));
         $this->valorcusto = Number::numberToFloat($this->input->post('valorcusto'));
