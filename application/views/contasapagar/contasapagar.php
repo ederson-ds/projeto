@@ -16,7 +16,13 @@
                     <td><?php echo Date::isoToDateBR($conta->data) ?></td>
                     <td style="text-align: right;padding-right: 5% !important;"><?php echo Number::floatToNumber($conta->valor) ?></td>
                     <td><?php echo $conta->descricao ?></td>
-                    <td><?php echo ContasAPagarModel::$tipostatus[$conta->status] ?></td>
+                    <td>
+                        <?php if($conta->status == ContasAPagarModel::A_PAGAR) { ?>
+                            <span class="badge bg-danger"><?php echo ContasAPagarModel::$tipostatus[$conta->status] ?></span>
+                        <?php } else if($conta->status == ContasAPagarModel::PAGO) { ?>
+                            <span class="badge bg-success"><?php echo ContasAPagarModel::$tipostatus[$conta->status] ?></span>
+                        <?php } ?>
+                    </td>
                     <td>
                         <?php echo editButton($controllerName, $conta->id); ?>
                         <?php echo deleteButton($conta->id); ?>
