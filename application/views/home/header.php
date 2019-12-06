@@ -85,7 +85,7 @@
                             foreach ($this->telasModel->get_arvores() as $arvore) { ?>
                                 <li class="nav-item has-treeview <?php echo Arvore::getArvoreActive($controllerName, $arvore, $this->telasModel, 'menu-open') ?>">
                                     <a href="#" class="nav-link <?php echo Arvore::getArvoreActive($controllerName, $arvore, $this->telasModel, 'active') ?>">
-                                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                                        <i class="nav-icon <?php echo $arvore->icone ?>"></i>
                                         <p>
                                             <?php echo $arvore->nome ?>
                                             <i class="right fas fa-angle-left"></i>

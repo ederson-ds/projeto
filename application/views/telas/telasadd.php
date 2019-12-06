@@ -6,13 +6,19 @@
             <input type="text" class="form-control" name="nome" value="<?php echo $tela->nome ?>" required/>
         </div>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-2">
         <!-- checkbox -->
         <div class="form-group clearfix" style="padding-top: 38px;">
             <div class="icheck-primary d-inline">
                 <input type="checkbox" name="arvorecheckbox" id="checkbox" <?php echo (!$tela->arvore) ? 'checked' : '' ?>>
                 <label for="checkbox">Árvore</label>
             </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            <label>Icone</label>
+            <input type="text" class="form-control" name="icone" value="<?php echo $tela->icone ?>" />
         </div>
     </div>
 </div>

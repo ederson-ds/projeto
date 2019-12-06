@@ -7,8 +7,8 @@
                 <th style="width: 20%">Nome da Tela</th>
                 <th style="width: 20%">Controller</th>
                 <th style="width: 20%">Árvore</th>
-                <th style="width: 10%">Data Cadastro</th>
-                <th style="width: 20%">Ações</th>
+                <th style="width: 10%">Ícone</th>
+                <th style="width: 30%">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -18,7 +18,7 @@
                     <td><?php echo $tela->nome ?></td>
                     <td><?php echo $tela->controller ?></td>
                     <td><?php echo $tela->arvore ?></td>
-                    <td><?php echo $tela->datacadastro ?></td>
+                    <td><?php echo $tela->icone ?></td>
                     <td>
                         <?php echo editButton($controllerName, $tela->id); ?>
                         <?php echo deleteButton($tela->id); ?>

@@ -5,6 +5,7 @@ class TelasModel extends CI_Model {
     public $nome;
     public $controller;
     public $arvore;
+    public $icone;
 
     public function __construct() {
         parent::__construct();
@@ -61,6 +62,7 @@ class TelasModel extends CI_Model {
 
     public function insert_entry($id) {
         $this->nome = $this->input->post('nome');
+        $this->icone = $this->input->post('icone');
         if($this->input->post('arvorecheckbox') != 'on') {
             $this->controller = $this->input->post('controller');
             $this->arvore = $this->input->post('arvore');
