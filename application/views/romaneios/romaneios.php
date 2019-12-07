@@ -33,6 +33,7 @@
                             ?>
                     </td>
                     <td>
+                        <?php echo pdfButton($controllerName, $romaneio->id); ?>
                         <?php echo editButton($controllerName, $romaneio->id); ?>
                         <?php echo deleteButton($romaneio->id); ?>
                     </td>
