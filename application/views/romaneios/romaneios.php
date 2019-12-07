@@ -3,9 +3,10 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th style="width: 20%">Nome do Operador</th>
+                <th style="width: 20%">Nome do Romaneio</th>
                 <th style="width: 20%">Cliente</th>
                 <th style="width: 20%">Nº de Peças</th>
+                <th style="width: 20%">Total Kg</th>
                 <th style="width: 20%">Ações</th>
             </tr>
         </thead>
@@ -24,6 +25,11 @@
                         <?php
                             $this->load->model('Romaneios_model');
                             echo $this->Romaneios_model->get_itemromaneio_num_pecas($romaneio->id)[0]->cont;
+                            ?>
+                    </td>
+                    <td>
+                        <?php
+                            echo Number::floatToNumber(round($this->Romaneios_model->get_itemromaneio_total_kg($romaneio->id)[0]->total_kg, 2));
                             ?>
                     </td>
                     <td>

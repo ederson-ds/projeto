@@ -55,6 +55,16 @@ class Romaneios_model extends CI_Model
         return $query->result();
     }
 
+    public function get_itemromaneio_total_kg($romaneios_id)
+    {
+        $this->db->select('sum(peso) as total_kg');
+        $this->db->from('itemromaneio');
+        $this->db->where("romaneios_id", $romaneios_id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
     public function insert($id)
     {
         $this->nome = $this->input->post('nome');
