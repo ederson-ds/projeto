@@ -5,6 +5,11 @@ class Romaneios_model extends CI_Model
 
     public $nome;
     public $clientes_id;
+    public $tecidos_id;
+    public $tamanho_maquina;
+    public $gramatura;
+    public $fios_id;
+    public $info_adicionais;
 
     public function __construct()
     {
@@ -65,10 +70,24 @@ class Romaneios_model extends CI_Model
         return $query->result();
     }
 
+    public function get_max_id()
+    {
+        $this->db->select('max(id) + 1 as max_id');
+        $this->db->from('romaneios');
+        $query = $this->db->get();
+
+        return $query->row();
+    }
+
     public function insert($id)
     {
         $this->nome = $this->input->post('nome');
         $this->clientes_id = $this->input->post('clientes_id');
+        $this->tecidos_id = $this->input->post('tecidos_id');
+        $this->tamanho_maquina = $this->input->post('tamanho_maquina');
+        $this->gramatura = $this->input->post('gramatura');
+        $this->fios_id = $this->input->post('fios_id');
+        $this->info_adicionais = $this->input->post('info_adicionais');
         if ($id) {
             $this->update($id);
             return;
