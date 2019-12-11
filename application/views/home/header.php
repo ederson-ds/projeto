@@ -48,6 +48,12 @@
         <script src="<?php echo base_url(); ?>plugins/select2/js/select2.full.min.js"></script>
         <!-- Jquery Mask -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+        <style>
+        .required:after {
+            content:" *";
+            color:red;
+        }
+        </style>
     </head>
     <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
         <div class="wrapper">

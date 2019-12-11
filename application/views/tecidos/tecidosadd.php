@@ -1,11 +1,6 @@
 <input type="hidden" name="id" value="<?php echo $tecido->id ?>" />
 <div class="row">
-    <div class="col-sm-4">
-        <div class="form-group">
-            <label>Tipo de Tecido</label>
-            <input type="text" class="form-control" name="nome" value="<?php echo $tecido->nome ?>" required/>
-        </div>
-    </div>
+    <?php echo addInput(4, 'Tipo de Tecido', 'nome', $tecido->nome, 'required'); ?>
 </div>
 <script>
     $(document).ready(function() {

@@ -1,11 +1,6 @@
 <input type="hidden" name="id" value="<?php echo $romaneio->id ?>" />
 <div class="row">
-    <div class="col-sm-4">
-        <div class="form-group">
-            <label>Nome do Romaneio</label>
-            <input type="text" class="form-control" name="nome" value="<?php echo $romaneio->nome ?>" required />
-        </div>
-    </div>
+    <?php echo addInput(4, 'Nome do Romaneio', 'nome', $romaneio->nome, 'required'); ?>
     <div class="col-sm-4">
         <div class="form-group">
             <label>Cliente</label>
@@ -89,6 +84,7 @@
     </div>
 </div>
 <h2>Rodapé</h2>
+<hr>
 <div class="row">
     <div class="col-sm-3">
         <div class="form-group">

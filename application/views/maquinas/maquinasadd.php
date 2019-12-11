@@ -1,11 +1,6 @@
 <input type="hidden" name="id" value="<?php echo $maquina->id ?>" />
 <div class="row">
-    <div class="col-sm-4">
-        <div class="form-group">
-            <label>Nome da Máquina</label>
-            <input type="text" class="form-control" name="nome" value="<?php echo $maquina->nome ?>" required/>
-        </div>
-    </div>
+    <?php echo addInput(4, 'Nome da Máquina', 'nome', $maquina->nome, 'required'); ?>
 </div>
 <script>
     $(document).ready(function() {

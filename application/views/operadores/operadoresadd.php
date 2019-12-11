@@ -1,11 +1,6 @@
 <input type="hidden" name="id" value="<?php echo $operador->id ?>" />
 <div class="row">
-    <div class="col-sm-4">
-        <div class="form-group">
-            <label>Nome do Operador</label>
-            <input type="text" class="form-control" name="nome" value="<?php echo $operador->nome ?>" required/>
-        </div>
-    </div>
+    <?php echo addInput(4, 'Nome do Operador', 'nome', $operador->nome, 'required'); ?>
 </div>
 <script>
     $(document).ready(function() {
