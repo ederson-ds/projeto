@@ -15,13 +15,13 @@ function deleteButton($id)
     return  '<button type="button" class="btn btn-default btn-excluir" id="' . $id . '" data-toggle="modal" data-target="#modal-default"><i class="fas fa-trash-alt"></i></button>';
 }
 
-function addInput($col, $label, $name, $value, $required = '')
+function addInput($col, $label, $name, $value, $required = '', $type = 'text')
 {
     return '
     <div class="col-sm-' . $col . '">
         <div class="form-group">
             <label class="' . $required . '">' . $label . '</label>
-            <input type="text" class="form-control" name="' . $name . '" value="' . $value . '" ' . $required . '/>
+            <input type="' . $type . '" class="form-control" name="' . $name . '" value="' . $value . '" ' . $required . '/>
         </div>
     </div>
   ';
