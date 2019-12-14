@@ -26,3 +26,29 @@ function addInput($col, $label, $name, $value, $required = '', $type = 'text')
     </div>
   ';
 }
+
+function addSelect($col, $label, $name, $array, $obj, $value, $required = '', $type = 'text', $id = '')
+{
+    $html = '
+    <div class="col-sm-' . $col . '" id="' . $id . '">
+        <div class="form-group">
+            <label>' . $label . '</label>
+            <select class="form-control select2" name="' . $name . '" style="width: 100%">
+    ';
+
+    foreach ($array as $a) {
+        $html .= '<option ';
+        if ($obj == $a->id) {
+            $html .= 'selected="selected" ';
+        }
+        $html .= ' value="' . $a->id . '">';
+        $html .= $a->$value;
+        $html .= '</option>';
+    }
+    $html .= '
+        </select>
+            </div>
+        </div>
+    ';
+    return $html;
+}

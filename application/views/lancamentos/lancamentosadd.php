@@ -17,26 +17,8 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-4" id="receitas">
-        <div class="form-group">
-            <label>Receitas</label>
-            <select class="form-control select2" name="receitas_id" style="width: 100%">
-                <?php foreach ($receitas as $receita) { ?>
-                    <option <?php if ($lancamento->receitas_despesas_id == $receita->id) { ?> selected="selected" <?php } ?> value="<?php echo $receita->id ?>"><?php echo $receita->nome ?></option>
-                <?php } ?>
-            </select>
-        </div>
-    </div>
-    <div class="col-sm-4" id="despesas" style="display: none;">
-        <div class="form-group">
-            <label>Despesas</label>
-            <select class="form-control select2" name="despesas_id" style="width: 100%">
-                <?php foreach ($despesas as $despesa) { ?>
-                    <option <?php if ($lancamento->receitas_despesas_id == $despesa->id) { ?> selected="selected" <?php } ?> value="<?php echo $despesa->id ?>"><?php echo $despesa->nome ?></option>
-                <?php } ?>
-            </select>
-        </div>
-    </div>
+    <?php echo addSelect(4, 'Receitas', 'receitas_id', $receitas, $lancamento->receitas_despesas_id, 'nome', '', 'text' , 'receitas'); ?>
+    <?php echo addSelect(4, 'Despesas', 'despesas_id', $despesas, $lancamento->receitas_despesas_id, 'nome', '', 'text' , 'despesas'); ?>
 </div>
 <script>
     $(document).ready(function() {
