@@ -3,50 +3,54 @@
         border-color: #8e8e8e !important;
         border-top: 1px solid;
     }
+
     table td {
         padding: 5px !important;
     }
-    .table td, .table th {
+
+    .table td,
+    .table th {
         border-color: #8e8e8e !important;
         padding: 5px !important;
     }
-
 </style>
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
 
         <?php if (!isset($header)) { ?>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
 
-                        <div class="card-tools" style="margin-top: 5px;">
+                            <div class="card-tools" style="margin-top: 5px;">
 
-                            <div class="input-group input-group-sm" style="width: 230px; height: 38px;">
-                                <input type="text" id="input-table_search" class="form-control float-right" placeholder="Pesquisar" style="height: 38px;">
+                                <div class="input-group input-group-sm" style="width: 230px; height: 38px;">
+                                    <input type="text" id="input-table_search" class="form-control float-right" placeholder="Pesquisar" style="height: 38px;">
 
-                                <div class="input-group-append">
-                                    <a href="<?php echo base_url() . $controllerName ?>/index" id="search_button" class="btn btn-default"><i class="fas fa-search" style="margin-top: 7px;"></i></a>
-                                    <a href="<?php echo base_url() . $controllerName ?>/create" class="btn btn-primary" style="width: 50px;"><i class="fas fa-plus" style="margin-top: 7px;"></i></a>
+                                    <div class="input-group-append">
+                                        <a href="<?php echo base_url() . $controllerName ?>/index" id="search_button" class="btn btn-default"><i class="fas fa-search" style="margin-top: 7px;"></i></a>
+                                        <a href="<?php echo base_url() . $controllerName ?>/create" class="btn btn-primary" style="width: 50px;"><i class="fas fa-plus" style="margin-top: 7px;"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-        <?php } ?>
+                    <?php } ?>
+
+                    <div ng-view></div>
+
                     <script>
-                        $(document).ready(function () {
+                        $(document).ready(function() {
                             // Atualizar pesquisar
                             // #table_search = pertence ao indexcontent.php
-                            $('#input-table_search').change(function () {
+                            $('#input-table_search').change(function() {
                                 changeButtonHref();
                             });
 
-                            $('#input-table_search').keyup(function (e) {
+                            $('#input-table_search').keyup(function(e) {
                                 changeButtonHref();
-                                if (e.keyCode == 13)
-                                {
+                                if (e.keyCode == 13) {
                                     $("#search_button")[0].click();
                                 }
                             });

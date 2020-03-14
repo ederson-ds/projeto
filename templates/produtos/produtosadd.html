@@ -28,19 +28,23 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Aquisição</label>
-                        <select class="form-control select2" ng-model="produto.aquisicao" ng-options="aquisicao.id as aquisicao.nome for aquisicao in aquisicoes" style="width: 100%"></select>
+                        <select class="form-control select2" ng-model="produto.aquisicao"
+                            ng-options="aquisicao.id as aquisicao.nome for aquisicao in aquisicoes"
+                            style="width: 100%"></select>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Custo Médio</label>
-                        <input type="text" class="form-control" name="customedio" ng-model="produto.customedio" money-mask required />
+                        <input type="text" class="form-control" name="customedio" ng-model="produto.customedio"
+                            money-mask required />
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Lucro</label>
-                        <input type="text" class="form-control" name="lucro" ng-model="produto.lucro" money-mask required />
+                        <input type="text" class="form-control" name="lucro" ng-model="produto.lucro" money-mask
+                            required />
                     </div>
                 </div>
             </div>
@@ -55,7 +59,7 @@
 <!-- /.card -->
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         $('.select2').select2({
             theme: 'bootstrap4'

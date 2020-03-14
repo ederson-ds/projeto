@@ -18,6 +18,27 @@ class Candidatos_model extends CI_Model
     public $sexo;
     public $complemento;
     public $datanasc;
+    public $nis;
+    public $telefone;
+    public $negropardo;
+    public $celular;
+    public $deficiente;
+    public $email;
+    public $cargo;
+    public $senha;
+    public $jurado;
+    public static $juradoList = [
+        0 => 'Sim',
+        1 => 'Não'
+    ];
+    public static $deficienteList = [
+        0 => 'Sim',
+        1 => 'Não'
+    ];
+    public static $negropardoList = [
+        0 => 'Negro',
+        1 => 'Pardo'
+    ];
     public static $orgaoExpedidorList = [
         0 => 'SSP/UF',
         1 => 'Cartório Civil',
@@ -58,17 +79,37 @@ class Candidatos_model extends CI_Model
         1 => 'Feminino'
     ];
 
-    public $clientes_id;
-    public $tecidos_id;
-    public $tamanho_maquina;
-    public $gramatura;
-    public $fios_id;
-    public $info_adicionais;
-
     public function __construct()
     {
         parent::__construct();
         $this->load->database();
+    }
+
+    public function insert($id)
+    {
+        header('Content-type: application/json');
+        $data = json_decode(file_get_contents('php://input'),true);
+
+        $this->nome = $data['nome'];
+        $this->cep = $data['cep'];
+        $this->cpf = $data['cpf'];
+        $this->logradouro = $data['logradouro'];
+        $this->identidade = $data['identidade'];
+        $this->num = $data['num'];
+        $this->orgaoexpedidor = $data['orgaoexpedidor'];
+        $this->estado = $data['estado'];
+        $this->dataexpedicao = $data['dataexpedicao'];
+        $this->cidade = $data['cidade'];
+        $this->nomemae = $data['nomemae'];
+        $this->bairro = $data['bairro'];
+        $this->sexo = $data['sexo'];
+        $this->complemento = $data['complemento'];
+        $this->datanasc = $data['datanasc'];
+        if ($id) {
+            $this->update($id);
+            return;
+        }
+        $this->db->insert('candidatos', $this);
     }
 
     public function get($id)
@@ -76,7 +117,7 @@ class Candidatos_model extends CI_Model
         if (!$id) {
             return $this->createEmptyObject();
         }
-        $query = $this->db->query("SELECT * FROM romaneios WHERE id = $id");
+        $query = $this->db->query("SELECT * FROM candidatos WHERE id = $id");
         return $query->row();
     }
 
@@ -84,41 +125,41 @@ class Candidatos_model extends CI_Model
     {
         if ($pesquisar) {
             $this->db->select('*');
-            $this->db->from('romaneios');
+            $this->db->from('candidatos');
             $this->db->like("nome", $pesquisar);
             $query = $this->db->get();
         } else {
-            $query = $this->db->get('romaneios');
+            $query = $this->db->get('candidatos');
         }
 
         return $query->result();
     }
 
-    public function get_itemromaneio_by_romaneios_id($romaneios_id)
+    public function get_itemromaneio_by_candidatos_id($candidatos_id)
     {
         $this->db->select('*');
         $this->db->from('itemromaneio');
-        $this->db->where("romaneios_id", $romaneios_id);
+        $this->db->where("candidatos_id", $candidatos_id);
         $query = $this->db->get();
 
         return $query->result();
     }
 
-    public function get_itemromaneio_num_pecas($romaneios_id)
+    public function get_itemromaneio_num_pecas($candidatos_id)
     {
         $this->db->select('count(1) as cont');
         $this->db->from('itemromaneio');
-        $this->db->where("romaneios_id", $romaneios_id);
+        $this->db->where("candidatos_id", $candidatos_id);
         $query = $this->db->get();
 
         return $query->result();
     }
 
-    public function get_itemromaneio_total_kg($romaneios_id)
+    public function get_itemromaneio_total_kg($candidatos_id)
     {
         $this->db->select('sum(peso) as total_kg');
         $this->db->from('itemromaneio');
-        $this->db->where("romaneios_id", $romaneios_id);
+        $this->db->where("candidatos_id", $candidatos_id);
         $query = $this->db->get();
 
         return $query->result();
@@ -127,39 +168,20 @@ class Candidatos_model extends CI_Model
     public function get_max_id()
     {
         $this->db->select('max(id) + 1 as max_id');
-        $this->db->from('romaneios');
+        $this->db->from('candidatos');
         $query = $this->db->get();
 
         return $query->row();
     }
 
-    public function insert($id)
-    {
-        $this->nome = $this->input->post('nome');
-        $this->clientes_id = $this->input->post('clientes_id');
-        $this->tecidos_id = $this->input->post('tecidos_id');
-        $this->tamanho_maquina = $this->input->post('tamanho_maquina');
-        $this->gramatura = $this->input->post('gramatura');
-        $this->fios_id = $this->input->post('fios_id');
-        $this->info_adicionais = $this->input->post('info_adicionais');
-        if ($id) {
-            $this->update($id);
-            return;
-        }
-        $this->db->insert('romaneios', $this);
-
-        $romaneios_id = $this->db->insert_id();
-        $this->insert_itemromaneio($romaneios_id);
-    }
-
-    public function insert_itemromaneio($romaneios_id)
+    public function insert_itemromaneio($candidatos_id)
     {
         $pecas = $this->input->post('num_peca');
         foreach ($pecas as $i => $peca) {
             if ($this->input->post('peso')[$i] == '') {
                 return;
             }
-            $this->db->set('romaneios_id', $romaneios_id);
+            $this->db->set('candidatos_id', $candidatos_id);
             $this->db->set('num_peca', $this->input->post('num_peca')[$i]);
             $this->db->set('maquinas_id', $this->input->post('maquinas_id')[$i]);
             $this->db->set('peso', Number::numberToFloat($this->input->post('peso')[$i]));
@@ -169,21 +191,18 @@ class Candidatos_model extends CI_Model
 
     public function update($id)
     {
-        $this->db->update('romaneios', $this, array('id' => $id));
-
-        $this->delete_itemromaneio_by_romaneios_id($id);
-        $this->insert_itemromaneio($id);
+        $this->db->update('candidatos', $this, array('id' => $id));
     }
 
     public function delete($id)
     {
-        $this->delete_itemromaneio_by_romaneios_id($id);
-        $this->db->delete('romaneios', array('id' => $id));
+        $this->delete_itemromaneio_by_candidatos_id($id);
+        $this->db->delete('candidatos', array('id' => $id));
     }
 
-    public function delete_itemromaneio_by_romaneios_id($romaneios_id)
+    public function delete_itemromaneio_by_candidatos_id($candidatos_id)
     {
-        $this->db->delete('itemromaneio', array('romaneios_id' => $romaneios_id));
+        $this->db->delete('itemromaneio', array('candidatos_id' => $candidatos_id));
     }
 
     public function createEmptyObject()

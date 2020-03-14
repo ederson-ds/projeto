@@ -25,6 +25,10 @@ class ProdutosModel extends CI_Model {
         $query = $this->db->query("SELECT * FROM produtos WHERE id = $id");
         return $query->row();
     }
+
+    public function getAquisicoes() {
+        return self::$tipoAquisicao;
+    }
     
     public function createEmptyObject() {
         $obj = new stdClass();
@@ -51,12 +55,15 @@ class ProdutosModel extends CI_Model {
     }
 
     public function insert_entry($id) {
-        $this->codigo = $this->input->post('codigo');
-        $this->nome = strtoupper($this->input->post('nome'));
-        $this->ean = $this->input->post('ean');
-        $this->aquisicao = $this->input->post('aquisicao');
-        $this->customedio = $this->number->numberToFloat($this->input->post('customedio'));
-        $this->lucro = $this->number->numberToFloat($this->input->post('lucro'));
+        header('Content-type: application/json');
+        $data = json_decode(file_get_contents('php://input'),true);
+        
+        $this->codigo = $data['codigo'];
+        $this->nome = strtoupper($data['nome']);
+        $this->ean = $data['ean'];
+        $this->aquisicao = $data['aquisicao'];
+        $this->customedio = $data['customedio'];
+        $this->lucro = $data['lucro'];
         if ($id) {
             $this->update_entry($id);
             return;

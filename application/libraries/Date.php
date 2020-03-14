@@ -7,8 +7,6 @@ class Date
 
     public static function isoToDateBR($dateIso)
     {
-        if (!$dateIso)
-            return null;
         $DateTime = new DateTime($dateIso);
         return $DateTime->format('d/m/Y');
     }
